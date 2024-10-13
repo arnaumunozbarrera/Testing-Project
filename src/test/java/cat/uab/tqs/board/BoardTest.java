@@ -12,22 +12,22 @@ class BoardTest {
 	}
 	
 	@Test
-	void setShip () {
+	void setShipTest () {
 		
 	}
 	
 	@Test
-	void setHit() {
+	void setHitTest() {
 		
 	}
 	
 	@Test
-	void printHit() {
+	void printHitTest() {
 		
 	}
 	
 	@Test
-	void setDeadShip() {
+	void setDeadShipTest() {
 		
 	}
 
