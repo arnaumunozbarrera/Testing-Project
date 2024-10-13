@@ -22,11 +22,14 @@ class BoardTest {
 	}
 	
 	@Test
+<<<<<<< HEAD
 	void printHitTest() {
 		
 	}
 	
 	@Test
+=======
+>>>>>>> ed6c1665cd95c1a256503dc2f1139688fa40a9e9
 	void setDeadShipTest() {
 		
 	}
