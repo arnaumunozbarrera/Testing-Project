@@ -10,7 +10,7 @@ public class Board {
 	public void setShip () {
 		
 	}
-	
+
 	public void setHit() {
 		
 	}
@@ -20,8 +20,8 @@ public class Board {
 	}
 	
 	public void setDeadShip() {
-		
-	}
+    
+  }
 	
 	public void printDeadShip() {
 		
@@ -30,5 +30,4 @@ public class Board {
 	public void printBoard() {
 		
 	}
-	
 }

@@ -28,7 +28,6 @@ class BoardTest {
 		board.printHit();
 	}
 	
-	
 	@Test
 	void setDeadShipTest() {
 		Board board = new Board();
@@ -36,5 +35,4 @@ class BoardTest {
 		assertEquals(board.getDeadShip(), 0);
 		
 	}
-
 }
