@@ -11,18 +11,14 @@ public class Board {
 		
 	}
 	
-<<<<<<< HEAD
 	void printHit() {
 		
 	}
 	
-=======
->>>>>>> ed6c1665cd95c1a256503dc2f1139688fa40a9e9
 	void setDeadShip() {
 		
 	}
 	
-<<<<<<< HEAD
 	void printDeadShip() {
 		
 	}
@@ -30,7 +26,4 @@ public class Board {
 	void printBoard() {
 		
 	}
-	
-=======
->>>>>>> ed6c1665cd95c1a256503dc2f1139688fa40a9e9
 }
