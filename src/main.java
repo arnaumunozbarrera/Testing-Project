@@ -1,27 +1,34 @@
 import java.util.Scanner;
+import java.io.IOException;
+
 
 public class main {
 
-    // Método para imprimir el menú
+	 public static void clearTerminal() {
+		 for(int i=0;i < 100; i++)
+			 System.out.println("\n                                                                               \n");
+	 }
+	
+    // Method to print menu
     public static void printMenu() {
 
-        System.out.println("_______________________________________________________________________________");
-        System.out.println("|                                                                             |");
-        System.out.println("|                               MENU BATTLESHIP                               |");
-        System.out.println("|_____________________________________________________________________________|");
-        System.out.println("|                                                                             |");
-        System.out.println("|                               1. Place ships for P1                         |");
-        System.out.println("|                               2. Place ships for P2                         |");
-        System.out.println("|                               3. Play                    		      |");
-        System.out.println("|                               4. Reset Boards                               |");
-        System.out.println("|                                                                             |");
-        System.out.println("|                               0. Exit                                       |");
-        System.out.println("|                                                                             |");
-        System.out.println("|_____________________________________________________________________________|");
-        System.out.println("|                                                                             |");
-        System.out.println("|                               OPTION:                                       |");
-        System.out.println("|_____________________________________________________________________________|");
-        System.out.println("                                                                               ");
+        System.out.println("\t\t\t_______________________________________________________________________________");
+        System.out.println("\t\t\t|                                                                             |");
+        System.out.println("\t\t\t|                               MENU BATTLESHIP                               |");
+        System.out.println("\t\t\t|_____________________________________________________________________________|");
+        System.out.println("\t\t\t|                                                                             |");
+        System.out.println("\t\t\t|                               1. Place ships for P1                         |");
+        System.out.println("\t\t\t|                               2. Place ships for P2                         |");
+        System.out.println("\t\t\t|                               3. Play                    		      |");
+        System.out.println("\t\t\t|                               4. Reset Boards                               |");
+        System.out.println("\t\t\t|                                                                             |");
+        System.out.println("\t\t\t|                               0. Exit                                       |");
+        System.out.println("\t\t\t|                                                                             |");
+        System.out.println("\t\t\t|_____________________________________________________________________________|");
+        System.out.println("\t\t\t|                                                                             |");
+        System.out.println("\t\t\t|                               OPTION:                                       |");
+        System.out.println("\t\t\t|_____________________________________________________________________________|");
+        System.out.println("\t\t\t                                                                               ");
 
     }
 
@@ -33,8 +40,39 @@ public class main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("\nEnter your option: ");
         int option = scanner.nextInt();
+        
+        
+        while (option > 4 || option < 0)
+        {
+        
 
-        // Aquí se puede agregar la lógica de procesamiento según la opción seleccionada
-        System.out.println("\nYou selected option: " + option);
+            switch (option) {
+            	case 0:
+            		//clearTerminal();
+            		System.exit(0);
+            		System.out.println("Exit game successfully");
+            		break;
+            		
+            	case 1:
+            		break;
+            		
+            	case 2:
+            		break;
+            		
+            	case 3:
+            		break;
+            		
+            	case 4:
+            		break;
+            		
+            	default:
+            		System.out.println("Option is not correct");
+            		scanner = new Scanner(System.in);
+                    System.out.print("\nEnter your option again: ");
+                    option = scanner.nextInt();
+            		break;
+            		
+            }
+        }
     }
 }
