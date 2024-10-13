@@ -23,16 +23,19 @@ class BoardTest {
 	@Test
 	void setHitTest() {
 		Board board = new Board();
-		board.printBoard();
+		board.printBoard(1);
 		board.setHit();
 		board.printHit();
+		
+		board.printBoard(2);
 	}
 	
 	@Test
 	void setDeadShipTest() {
 		Board board = new Board();
-		board.setDeadShip();;
+		board.setDeadShip();
 		assertEquals(board.getDeadShip(), 0);
 		
 	}
+
 }

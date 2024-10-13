@@ -1,4 +1,7 @@
 import java.util.Scanner;
+
+import main.java.cat.uab.tqs.board.Board;
+
 import java.io.IOException;
 
 

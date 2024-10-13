@@ -1,6 +1,10 @@
 package main.java.cat.uab.tqs.game;
 
 public class Game {
+	// Matrix dimensions
+	public static final int DimMatrixRow = 4; 
+    public static final int DimMatrixCol = 4;
+    
     // Matrix of positions of the game
 	
  	// W represents water
@@ -40,4 +44,12 @@ public class Game {
         {"", "", "", ""},
         {"", "", "", ""}
     };
+    
+    public static void migotoxy(int x, int y) {
+        System.out.print(String.format("\033[%d;%dH", x, y));
+    }
+
+    public static void gotoxy(int row_num, int col_num) {
+        migotoxy(row_num, col_num);
+    }
 }
