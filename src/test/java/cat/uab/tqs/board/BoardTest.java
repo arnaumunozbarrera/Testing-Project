@@ -10,5 +10,20 @@ class BoardTest {
 	void test() {
 		fail("Not yet implemented");
 	}
+	
+	@Test
+	void setShipTest () {
+		
+	}
+	
+	@Test
+	void setHitTest() {
+		
+	}
+	
+	@Test
+	void setDeadShipTest() {
+		
+	}
 
 }
