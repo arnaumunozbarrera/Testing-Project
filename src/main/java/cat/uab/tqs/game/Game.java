@@ -24,7 +24,6 @@ public class Game {
 	     {"", "", "", ""}
 	 };
 
-   
     // Board for Players to place the ships
     public static String[][] boardP1 = {
         {"", "", "", ""},
