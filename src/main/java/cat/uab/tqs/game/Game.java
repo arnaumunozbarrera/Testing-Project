@@ -1,6 +1,6 @@
 package main.java.cat.uab.tqs.game;
 
-public class Game {
+public abstract class Game {
     // Matrix of positions of the game
 	
  	// W represents water

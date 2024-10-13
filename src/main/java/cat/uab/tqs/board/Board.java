@@ -10,7 +10,19 @@ public class Board {
 		
 	}
 	
+	void printHit() {
+		
+	}
+	
 	void setDeadShip() {
+		
+	}
+	
+	void printDeadShip() {
+		
+	}
+	
+	void printBoard() {
 		
 	}
 	
