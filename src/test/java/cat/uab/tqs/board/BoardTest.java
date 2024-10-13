@@ -4,6 +4,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
+import main.java.cat.uab.tqs.board.Board;
+
 class BoardTest {
 
 	@Test
@@ -13,24 +15,25 @@ class BoardTest {
 	
 	@Test
 	void setShipTest () {
-		
+		Board board = new Board();
+		board.setShip();
+		assertEquals(board.getShip(), 0);
 	}
 	
 	@Test
 	void setHitTest() {
-		
+		Board board = new Board();
+		board.printBoard();
+		board.setHit();
+		board.printHit();
 	}
 	
-	@Test
-<<<<<<< HEAD
-	void printHitTest() {
-		
-	}
 	
 	@Test
-=======
->>>>>>> ed6c1665cd95c1a256503dc2f1139688fa40a9e9
 	void setDeadShipTest() {
+		Board board = new Board();
+		board.setDeadShip();;
+		assertEquals(board.getDeadShip(), 0);
 		
 	}
 

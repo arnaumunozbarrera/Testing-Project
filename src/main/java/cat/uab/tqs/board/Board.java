@@ -3,34 +3,32 @@ import main.java.cat.uab.tqs.game.*;
 
 public class Board {
 	
-	void setShip () {
+	public Board() {
 		
 	}
 	
-	void setHit() {
+	public void setShip () {
 		
 	}
 	
-<<<<<<< HEAD
-	void printHit() {
+	public void setHit() {
 		
 	}
 	
-=======
->>>>>>> ed6c1665cd95c1a256503dc2f1139688fa40a9e9
-	void setDeadShip() {
+	public void printHit() {
 		
 	}
 	
-<<<<<<< HEAD
-	void printDeadShip() {
+	public void setDeadShip() {
 		
 	}
 	
-	void printBoard() {
+	public void printDeadShip() {
 		
 	}
 	
-=======
->>>>>>> ed6c1665cd95c1a256503dc2f1139688fa40a9e9
+	public void printBoard() {
+		
+	}
+	
 }
