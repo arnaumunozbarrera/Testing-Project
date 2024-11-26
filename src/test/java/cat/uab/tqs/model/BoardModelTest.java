@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class BoardModelTest {
 
-	private BoardModel board = new BoardModel(8, '~', 'S', 'X', '0');
+	private BoardModel board = new BoardModel(8, '~', 'S', 'X', 'O');
 	
 	
 	@Test
@@ -90,7 +90,8 @@ class BoardModelTest {
 
 	@Test
 	void testGetMissChar() {
-		assertEquals('0',board.getMissChar());
+		assertEquals('O',board.getMissChar());
 	}
+
 
 }
