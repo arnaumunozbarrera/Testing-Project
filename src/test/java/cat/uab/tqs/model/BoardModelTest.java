@@ -90,7 +90,7 @@ class BoardModelTest {
 
 	@Test
 	void testGetMissChar() {
-		assertEquals('0',board.getMissChar());
+		assertEquals('O',board.getMissChar());
 	}
 
 }
