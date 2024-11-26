@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 class BoardModelTest {
 
-	private BoardModel board = new BoardModel(8, '~', 'S', 'X', '0');
+	private BoardModel board = new BoardModel(8, '~', 'S', 'X', 'O');
 	
 	
 	@Test
