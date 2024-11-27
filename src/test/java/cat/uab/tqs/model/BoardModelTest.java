@@ -93,4 +93,5 @@ class BoardModelTest {
 		assertEquals('O',board.getMissChar());
 	}
 
+
 }
