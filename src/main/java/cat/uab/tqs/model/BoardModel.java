@@ -27,14 +27,18 @@ public class BoardModel {
     public char getCell(int row, int col) {
         return grid[row][col];
     }
-    
-    public char getWater(int row, int col) {
-    	char c = '-';
-        return c;
-    }
 
-    public void setCell(int row, int col, char value) {
-        grid[row][col] = value;
+    public boolean setCell(int row, int col, char value) {
+    	if (isBetween(row) && isBetween(col)) {
+    		grid[row][col] = value;
+    		return true;
+    	} else {
+    		return false;
+    	}
+    }
+    
+    public boolean isBetween(int coord) {
+    	return coord >= 1 && coord <= 8;
     }
 
     public boolean isCellEmpty(int row, int col) {
@@ -57,3 +61,4 @@ public class BoardModel {
         return miss;
     }
 }
+
