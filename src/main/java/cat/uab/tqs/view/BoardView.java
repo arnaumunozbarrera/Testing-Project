@@ -19,7 +19,6 @@ public class BoardView {
                 if (hideShips) {
                 	if(cell == board.getShipChar()) {
                         System.out.print(board.getWater(row, col) + " ");
-
                 	}
                 	else {
                 		System.out.print(board.getCell(row, col) + " ");
