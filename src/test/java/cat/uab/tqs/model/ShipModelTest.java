@@ -12,6 +12,7 @@ class ShipModelTest {
 	void testGetRow() {
 		
 		// Primera versió de prova
+		
 	    ShipModel s1 = new ShipModel(0, 0); // valor límit inferior
 	    assertEquals(s1.getRow(), 0);
 	    
@@ -26,13 +27,15 @@ class ShipModelTest {
 	    
 	    ShipModel s5 = new ShipModel(1, 7); // partició dins dels límits
 	    assertEquals(s5.getRow(), 1);
-
 	    
-	 // Segona versió de prova
+	    // Segona versió de prova
 	}
 
 	@Test
 	void testGetCol() {
+		
+		// Primera versió de prova
+		
 		ShipModel s1 = new ShipModel(0, 0); // valor límit inferior
 	    assertEquals(s1.getCol(), 0);
 	    
@@ -43,14 +46,11 @@ class ShipModelTest {
 	    assertEquals(s3.getCol(), 4);
 
 	    ShipModel s4 = new ShipModel(3, 5); // partició dins dels límits
-	    assertEquals(s4.getCol(), 3);
+	    assertEquals(s4.getCol(), 5);
 	    
 	    ShipModel s5 = new ShipModel(1, 7); // partició dins dels límits
-	    assertEquals(s5.getCol(), 1);
-
-	    
-	 // Segona versió de prova
-
+	    assertEquals(s5.getCol(), 7);
+   
+	    // Segona versió de prova
 	}
-
 }
