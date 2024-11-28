@@ -28,8 +28,8 @@ public class BoardModel {
         return grid[row][col];
     }
 
-    public boolean setCell(int row, int col, char value) {
-    	if (isBetween(row) && isBetween(col)) {
+    public boolean setCell(int row, int col, int size, char value) {
+    	if (isBetween(row, size) && isBetween(col, size)) {
     		grid[row][col] = value;
     		return true;
     	} else {
@@ -37,8 +37,8 @@ public class BoardModel {
     	}
     }
     
-    public boolean isBetween(int coord) {
-    	return coord >= 1 && coord <= 8;
+    public boolean isBetween(int coord, int size) {
+    	return coord >= 1 && coord <= size;
     }
 
     public boolean isCellEmpty(int row, int col) {
@@ -61,4 +61,6 @@ public class BoardModel {
         return miss;
     }
 }
+
+
 
