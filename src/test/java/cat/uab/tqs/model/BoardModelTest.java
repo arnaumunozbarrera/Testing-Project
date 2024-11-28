@@ -8,7 +8,7 @@ import main.java.cat.uab.tqs.model.BoardModel;
 
 class BoardModelTest {
 	
-	private BoardModel board = new BoardModel(4, '~', 'S', 'X', 'O');
+	private BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
 
 	@Test
 	void testSetCell() {
@@ -30,13 +30,15 @@ class BoardModelTest {
 	void testIsBetween() {
 		//Teniendo en cuenta una matriz de 4x4, particions equivalents de row: -4,0,1,2,3,4,5,8
 		assertFalse(board.isBetween(-4,board.getSize()));
-		assertFalse(board.isBetween(0,board.getSize()));
-		assertTrue(board.isBetween(1, board.getSize())); 
+		assertFalse(board.isBetween(-1,board.getSize()));
+		assertTrue(board.isBetween(0, board.getSize())); 
+		assertTrue(board.isBetween(1, board.getSize()));
 		assertTrue(board.isBetween(2, board.getSize()));
 		assertTrue(board.isBetween(3, board.getSize()));
-		assertTrue(board.isBetween(4, board.getSize()));
+		assertFalse(board.isBetween(4, board.getSize()));
 		assertFalse(board.isBetween(5, board.getSize()));
 		assertFalse(board.isBetween(8, board.getSize()));
+
 	}
 
 	@Test
@@ -74,4 +76,3 @@ class BoardModelTest {
 	}
 
 }
-
