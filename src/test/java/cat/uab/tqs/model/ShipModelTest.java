@@ -13,6 +13,8 @@ class ShipModelTest {
 		
 		// Primera versió de prova
 		
+		//Teniendo en cuenta una matriz de 8x8
+		
 	    ShipModel s1 = new ShipModel(0, 0); // valor límit inferior
 	    assertEquals(s1.getRow(), 0);
 	    
@@ -35,6 +37,8 @@ class ShipModelTest {
 	void testGetCol() {
 		
 		// Primera versió de prova
+		
+		//Teniendo en cuenta una matriz de 8x8
 		
 		ShipModel s1 = new ShipModel(0, 0); // valor límit inferior
 	    assertEquals(s1.getCol(), 0);
