@@ -10,6 +10,7 @@ public class BoardModel {
     private  char miss;
 
     public BoardModel(int size, char water, char ship, char hit, char miss) {
+    	//assert(size > 0):"The size of the board must be greater than 0" ;
         this.grid = new char[size][size];
         this.water = water;
         this.ship = ship;
@@ -17,25 +18,14 @@ public class BoardModel {
         this.miss = miss;
         for (char[] row : grid) {
             Arrays.fill(row, water);
-        }   
-    }
-    
-    private boolean invariant() {
-    	return (grid.length > 1);
+        }
     }
 
     public int getSize() {
-    	
-    	//assert invariant (); // invariant check
-    	
         return grid.length;
     }
 
     public char getCell(int row, int col) {
-    	
-    	//assert (row >= 0): "Row value too low"; // precondition
-    	//assert (col >= 0): "Row value too low"; // precondition
-    	
         return grid[row][col];
     }
     
@@ -45,35 +35,27 @@ public class BoardModel {
     }
 
     public boolean setCell(int row, int col, int size, char value) {
-    	
-    	//assert invariant(); // invariant check
-    	
-    	if (isBetween(row, size) && isBetween(col, size)) {
+    	if (isBetween(row, size) && isBetween(col, size) && isValidChar(value) && size > 0) {
     		grid[row][col] = value;
     		return true;
     	} else {
     		return false;
     	}
     }
-
+    
+    public boolean isValidChar(char value) {
+    	return value == water || value == ship || value == hit || value == miss;
+    }
+    
     public boolean isBetween(int coord, int size) {
-    	//assert (size > 0): "Size value too low"; // precondition
-    	//assert (coord >= 0): "Coord value too low"; // precondition
-    	//assert (coord < 5): "Coord value too high"; // precondition
     	return coord >= 0 && coord < size;
     }
 
 	public boolean isCellEmpty(int row, int col) {
-		//assert (row >= 0): "Row value too low"; // precondition
-    	//assert (row < 5): "Row size too high"; // precondition
-    	//assert (col >= 0): "Row value too low"; // precondition
-    	//assert (col < 5): "Row value too high"; // precondition
         return grid[row][col] == water;
     }
 
     public char[][] getGrid() {
-    	//assert (grid.length > 1): "Grid length too small"; // precondition
-    	//assert (grid.length < 5): "Grid length too high"; // precondition
         return grid;
     }
 

@@ -12,18 +12,43 @@ class BoardModelTest {
 
 	@Test
 	void testSetCell() {
-		
-		// row: vàlid i col: vàlid
+		//cas 1: row vàlid, col vàlid, size vàlid, value vàlid
 		assertTrue(board.setCell(2, 2,board.getSize(), 'S'));
 		
-		// row: vàlid i col: invàlid
-		assertFalse(board.setCell(2, 9,board.getSize(), 'S'));
+		//cas 2: row vàlid, col vàlid, size vàlid, value invàlid
+		assertFalse(board.setCell(2, 2,board.getSize(), '?'));
 		
-		// row: invàlid i col: vàlid
-		assertFalse(board.setCell(9, 2,board.getSize(), 'S'));
+		//cas 3: row vàlid, col vàlid, size invàlid, value vàlid
+		assertFalse(board.setCell(2, 2,-1, 'S'));
 		
-		// row: invàlid i col: invàlid
-		assertFalse(board.setCell(9, 9,board.getSize(), 'S'));
+		//cas 4: row vàlid, col invàlid, size vàlid, value vàlid
+		assertFalse(board.setCell(2, 9,board.getSize(), 'X'));
+		
+		//cas 5: row vàlid, col invàlid, size vàlid, value invàlid
+		assertFalse(board.setCell(2, 9,board.getSize(), '?'));
+		
+		//cas 6: row invàlid, col vàlid, size vàlid, value vàlid
+		assertFalse(board.setCell(9, 2,board.getSize(), 'O'));
+		
+		//cas 7: row invàlid, col vàlid, size vàlid, value invàlid
+		assertFalse(board.setCell(9, 2,board.getSize(), '?'));
+		
+		//cas 8: row invàlid, col invàlid, size invàlid, value vàlid
+		assertFalse(board.setCell(9, 9,-1, '-'));
+		
+		//cas 9: row invàlid, col invàlid, size invàlid, value invàlid
+		assertFalse(board.setCell(9, 9,-1, '?'));
+	}
+	
+	@Test
+	void testIsValidChar() {
+		//Hacer Condition coverage y state coverage 
+		assertTrue(board.isValidChar('-'));
+		assertTrue(board.isValidChar('S'));
+		assertTrue(board.isValidChar('X'));
+		assertTrue(board.isValidChar('O'));
+		assertFalse(board.isValidChar('?'));
+		assertFalse(board.isValidChar('a'));
 	}
 	
 	@Test
