@@ -54,7 +54,7 @@ public class BattleshipController {
                 
                 //assert (board.getSize() > 1): "Board size value must be greater than 1"; // precondition
 
-                if (row < 0 || row >= board.getSize() || col < 0 || col >= board.getSize()) {
+                /*if (row < 0 || row >= board.getSize() || col < 0 || col >= board.getSize()) {
                     messageView.showMessage("Coordinates out of bounds. Try again.");
                 } else if (!board.isCellEmpty(row, col)) {
                     messageView.showMessage("Cell already occupied. Try again.");
@@ -63,6 +63,16 @@ public class BattleshipController {
                     //assert (board.getCell(row, col) != ' '): "Board cell should not be empty"; // postcondition
                     break;
                 }
+                */
+                if (!board.isCellEmpty(row, col)) {
+                    messageView.showMessage("Cell already occupied. Try again.");
+                } else if (!board.setCell(row, col, board.getSize(), board.getShipChar())) {
+                    messageView.showMessage("Coordinates out of bounds. Try again.");
+                } else {
+                    break;
+                }
+
+                
             }
         }
     }
