@@ -30,9 +30,7 @@ class InputViewTest {
     @Test
     void testValidInputs() {
     	
-    	// Primera versió de prova 
-    	
-        // Primera prova (Inputs vàlid segons una matriu 8x8, (0-7)) 
+    	// (Inputs vàlid segons una matriu 8x8, (0-7)) 
     	
         String simulatedInput = "0\n7\n4\n3\n1\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
@@ -49,9 +47,7 @@ class InputViewTest {
     @Test
     void testOutOfRangeInputs() {
     	
-    	// Primera versió de prova 
-    	
-        // Primera prova (Inputs no vàlids segons una matriu 8x8, (-1, 9, -4, 13)) 
+    	// (Inputs no vàlids segons una matriu 8x8, (-1, 9, -4, 13)) 
     	
         String simulatedInput = "-1\n9\n-4\n13\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
@@ -65,11 +61,9 @@ class InputViewTest {
     }
 
     @Test
-    void testInvalidInputs() {
+    void testInvalidInputs() {	
     	
-    	// Primera versió de prova 
-    	
-        // Primera prova (Inputs no vàlids segons una matriu 8x8, (-lletres i decimals)) 
+        // (Inputs no vàlids segons una matriu 8x8, (-lletres i decimals)) 
 
         String simulatedInput = "a\nabcd\n3.1415\n5\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
