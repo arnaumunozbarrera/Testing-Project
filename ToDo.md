@@ -2,7 +2,8 @@
 · To Do: 
 
 - MVC
-- TDD: 2 versions 
+- TDD: 2 versions
+	Falta en: 
 - Caja negra: Per a tots els mètodes desenvolupats de classes de baix nivell:
 	90 % de totes les particions equivalents
 	90% de tots els casos possibles de valors límit i frontera
