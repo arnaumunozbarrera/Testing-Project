@@ -10,9 +10,7 @@ class ShipModelTest {
 
 	@Test
 	void testGetRow() {
-		
-		// Primera versió de prova
-		
+				
 		//Teniendo en cuenta una matriz de 8x8
 		
 	    ShipModel s1 = new ShipModel(0, 0); // valor límit inferior
@@ -30,13 +28,10 @@ class ShipModelTest {
 	    ShipModel s5 = new ShipModel(1, 7); // partició dins dels límits
 	    assertEquals(s5.getRow(), 1);
 	    
-	    // Segona versió de prova
 	}
 
 	@Test
 	void testGetCol() {
-		
-		// Primera versió de prova
 		
 		//Teniendo en cuenta una matriz de 8x8
 		
@@ -55,6 +50,5 @@ class ShipModelTest {
 	    ShipModel s5 = new ShipModel(1, 7); // partició dins dels límits
 	    assertEquals(s5.getCol(), 7);
    
-	    // Segona versió de prova
 	}
 }
