@@ -86,19 +86,25 @@ class BattleshipControllerTest {
 		
 		int result2= game2.takeTurn();
 		assertEquals(0,result2);
-		assertEquals('-', board2.getCell(0, 0));
+		assertEquals('O', board2.getCell(1, 1));
 		assertTrue(messageView2.containsMessage("Miss!"));
 		
-		// 3. Casilla ya targeteada
+		// 3. Casilla ya targeteada por barco descubierto
 		BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView3 = new BoardView();
 		String name3 = "prova";
-		MockInputView inputView3 = new MockInputView(new int[] {1,1,2,2}); //Primer afegim (1,1), despres tornem a intentar afegir (1,1) que no hauria de deixar i afegir 
+		MockInputView inputView3 = new MockInputView(new int[] {1,1,2,2}); //Primer afegim (1,1)
 		MockMessageView messageView3 = new MockMessageView();
 		BattleshipController game3 = new BattleshipController(board3, boardView3, inputView3, messageView3, name3);
 		
 		board3.setCell(0, 0, board3.getSize(), 'X');
 		int result3 = game3.takeTurn();
+		
+		assertEquals(0,result3);
+		assertEquals('X', board3.getCell(0, 0));
+		assertEquals('O', board3.getCell(1, 1));
+		assertTrue(messageView3.containsMessage("Already targeted. Try again."));
+		assertTrue(messageView3.containsMessage("Miss!"));
 		
 		// 4. Casilla ya fallada
 		BoardModel board4 = new BoardModel(4, '-', 'S', 'X', 'O');
@@ -107,12 +113,17 @@ class BattleshipControllerTest {
 		MockInputView inputView4 = new MockInputView(new int[] {1,1,2,2}); //Primer afegim (1,1), despres tornem a intentar afegir (1,1) que no hauria de deixar i afegir 
 		MockMessageView messageView4 = new MockMessageView();
 		BattleshipController game4 = new BattleshipController(board4, boardView4, inputView4, messageView4, name4);
-	}
-	
-	@Test
-	void testStartGame() {
-		fail("Not yet implemented");
+		
+		board4.setCell(0, 0, board4.getSize(), 'O');
+		int result4 = game4.takeTurn();
+		
+		assertEquals(0,result4);
+		assertEquals('O', board4.getCell(0, 0));
+		assertEquals('O', board4.getCell(1, 1));
+		assertTrue(messageView4.containsMessage("Already targeted. Try again."));
+		assertTrue(messageView4.containsMessage("Miss!"));
 	}
 
 }
+
 
