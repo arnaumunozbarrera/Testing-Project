@@ -1,22 +1,9 @@
 ﻿----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 · To Do: 
 
-- TDD: 2 versions
-	Falta en: BattleShipControllerTest, BoardModelTest, ShipModelTest, BoardViewTest, InputViewTest & MessageViewTest
-
-   Per a un mètode desenvolupat:
-	Pairwise testing
-	Falta: BoadModel
-
-Caixa Blanca:
-   Per a un mínim de 3 mètodes desenvolupats:
- 	Decision coverage, condition coverage
-   Per a un mínim de dos mètodes desenvolupats:
-	Path coverage
    Per a un mínim de dos loops simples i dos loops aniuats:
  	Loop testing
-	Falta en: 1 loop simple y los loops anidados
-
+	Falta en: 1 loop simple 
 
 - Mock object:
 	A més dels mock object necessaris per poder test del Model i el Controlador simulant la interacció amb la Vista, un mínim de quatre mock object més. 
