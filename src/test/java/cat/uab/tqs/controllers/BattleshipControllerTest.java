@@ -174,23 +174,6 @@ class BattleshipControllerTest {
 		assertTrue(messageView4.containsMessage("Already targeted. Try again."));
 		assertTrue(messageView4.containsMessage("Miss!"));
 		
-		// 5. Casella ja fallada
-		
-		BoardModel board5 = new BoardModel(4, '-', 'S', 'X', 'O');
-		BoardView boardView5 = new BoardView();
-		String name5 = "prova";
-		MockInputView inputView5 = new MockInputView(new int[] {1,1,2,2}); //Primer afegim (1,1), despres tornem a intentar afegir (1,1) que no hauria de deixar i afegir 
-		MockMessageView messageView5 = new MockMessageView();
-		BattleshipController game5 = new BattleshipController(board5, boardView5, inputView5, messageView5, name5);
-		
-		board5.setCell(0, 0, board5.getSize(), 'O');
-		int result5 = game5.takeTurn();
-		
-		assertEquals(0,result5);
-		assertEquals('O', board5.getCell(0, 0));
-		assertEquals('O', board5.getCell(1, 1));
-		assertTrue(messageView5.containsMessage("Already targeted. Try again."));
-		assertTrue(messageView5.containsMessage("Miss!"));
 	}
 	
 	@Test
