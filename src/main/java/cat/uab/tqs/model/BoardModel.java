@@ -76,7 +76,7 @@ public class BoardModel {
     	//assert (grid.length > 1): "Grid length too small"; // precondition
     	//assert (grid.length < 5): "Grid length too high"; // precondition
         return grid;
-    }
+    } 
     
     public boolean isValidChar(char value) {
     	return value == water || value == ship || value == hit || value == miss;
