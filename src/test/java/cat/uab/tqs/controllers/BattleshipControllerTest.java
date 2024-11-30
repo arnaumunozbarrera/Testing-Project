@@ -156,7 +156,7 @@ class BattleshipControllerTest {
 		assertTrue(messageView3.containsMessage("Already targeted. Try again."));
 		assertTrue(messageView3.containsMessage("Miss!"));
 		
-		// 3. Casella ja feta servir per Miss previ 
+		// 4. Casella ja feta servir per Miss previ 
 		
 		BoardModel board4 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView4 = new BoardView();
@@ -174,7 +174,7 @@ class BattleshipControllerTest {
 		assertTrue(messageView4.containsMessage("Already targeted. Try again."));
 		assertTrue(messageView4.containsMessage("Miss!"));
 		
-		// 4. Casella ja fallada
+		// 5. Casella ja fallada
 		
 		BoardModel board5 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView5 = new BoardView();
@@ -332,4 +332,3 @@ class BattleshipControllerTest {
 	}
 
 }
-
