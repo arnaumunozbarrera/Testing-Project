@@ -9,46 +9,52 @@ import main.java.cat.uab.tqs.model.ShipModel;
 class ShipModelTest {
 
 	@Test
-	void testGetRow() {
+	void testGetRowParticionsEquivalentsAndValorsLimitAndFrontera() {
 				
-		//Teniendo en cuenta una matriz de 8x8
+		// En aquest test considerem una matriu 4x4, on els valors a provar són:
+		// Particions equivalents: vàlid (2), no vàlid (-1)
+		// Valors límit: 0 i 3
+		// Valors frontera: dins dels límits (0 i 3) i fora (-1 i 4)
 		
-	    ShipModel s1 = new ShipModel(0, 0); // valor límit inferior
-	    assertEquals(s1.getRow(), 0);
+	    ShipModel s1 = new ShipModel(2, 2);
+	    assertEquals(s1.getRow(), 2);
 	    
-	    ShipModel s2 = new ShipModel(7, 7); // valor límit superior
-	    assertEquals(s2.getRow(), 7);
+	    ShipModel s2 = new ShipModel(-1, -1); 
+	    assertEquals(s2.getRow(), -1);
 
-	    ShipModel s3 = new ShipModel(4, 4); // valor mitjà
-	    assertEquals(s3.getRow(), 4);
+	    ShipModel s3 = new ShipModel(0, 0); 
+	    assertEquals(s3.getRow(), 0);
 
-	    ShipModel s4 = new ShipModel(3, 5); // partició dins dels límits
+	    ShipModel s4 = new ShipModel(3, 3); 
 	    assertEquals(s4.getRow(), 3);
 	    
-	    ShipModel s5 = new ShipModel(1, 7); // partició dins dels límits
-	    assertEquals(s5.getRow(), 1);
+	    ShipModel s5 = new ShipModel(4, 4); 
+	    assertEquals(s5.getRow(), 4);
 	    
 	}
 
 	@Test
-	void testGetCol() {
+	void testGetColParticionsEquivalentsAndValorsLimitAndFrontera() {
 		
-		//Teniendo en cuenta una matriz de 8x8
+		// En aquest test considerem una matriu 4x4, on els valors a provar són:
+		// Particions equivalents: vàlid (2), no vàlid (-1)
+		// Valors límit: 0 i 3
+		// Valors frontera: dins dels límits (0 i 3) i fora (-1 i 4)
 		
-		ShipModel s1 = new ShipModel(0, 0); // valor límit inferior
-	    assertEquals(s1.getCol(), 0);
+	    ShipModel s1 = new ShipModel(2, 2);
+	    assertEquals(s1.getCol(), 2);
 	    
-	    ShipModel s2 = new ShipModel(7, 7); // valor límit superior
-	    assertEquals(s2.getCol(), 7);
+	    ShipModel s2 = new ShipModel(-1, -1); 
+	    assertEquals(s2.getCol(), -1);
 
-	    ShipModel s3 = new ShipModel(4, 4); // valor mitjà
-	    assertEquals(s3.getCol(), 4);
+	    ShipModel s3 = new ShipModel(0, 0); 
+	    assertEquals(s3.getCol(), 0);
 
-	    ShipModel s4 = new ShipModel(3, 5); // partició dins dels límits
-	    assertEquals(s4.getCol(), 5);
+	    ShipModel s4 = new ShipModel(3, 3); 
+	    assertEquals(s4.getCol(), 3);
 	    
-	    ShipModel s5 = new ShipModel(1, 7); // partició dins dels límits
-	    assertEquals(s5.getCol(), 7);
+	    ShipModel s5 = new ShipModel(4, 4); 
+	    assertEquals(s5.getCol(), 4);
    
 	}
 }
