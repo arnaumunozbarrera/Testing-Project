@@ -1,21 +1,34 @@
 ﻿----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 · To Do: 
+	- Codi:
+		· 2 Condition Coverage.
+		· 3 Decision Coverage.
+		· 1 Path Coverage.
+		· Fer ús d'un mock object de Mockito.
+		· CI regles a GitHub.
+	
+	- Informe: 
+		· TDD. Per cada mètode s’haurà de mostrar, tants cops com sigui necessari, una versió del codi de
+		prova i a continuació una versió del codi desenvolupat a partir d’aquest codi de prova. Per cada
+		mètode és obligatori realitzar un mínim de dues versions (excepte que es tracti de mètodes molt
+		simples com per exemple getters i setters) tant del codi de prova com del codi desenvolupat per
+		tal d’avaluar com s’ha realitzat el TDD. 
 
-- Mock object:
-	A més dels mock object necessaris per poder test del Model i el Controlador simulant la interacció amb la Vista, un mínim de quatre mock object més. 
-	Dos d’ells han d’estar fets amb mockito i els altres dos implementats per vosaltres directament en codi (és a dir, sense utilitzar mockito).
-	Falta: repasar
+		·Pels casos de statement coverage és necessària una captura de pantalla a l’informe mostrant el
+		tant per cent de la cobertura de cadascun dels mètodes. Pels casos de decision coverage,
+		condition coverage, path coverage i loop testing, és necessària una captura de pantalla de
+		cadascun dels mètodes o loops analitzats (línies de codi amb el color que mostra el plugin
+		Eclemma de Eclipse o similar). Pels casos de path coverage, és necessari mostrar un diagrama
+		de fluxe (diagrama d’activitats en UML) per cada mètode analitzat. 
 
-- CI:
- S’executen els test automàticament en fer un merge a main.
- Es comprova la qualitat del codi d’acord amb unes normes preestablertes, per exemple el màxim tamany d’una linea.
- Un error en qualsevol acció provoca que no s’accepti el merge dins de main. 
- Falta:
-
+		· CI. El projecte haurà d’utilitzar accions de github mitjançant les quals es llancin els test (o altres
+		utilitats, com la qualitat del codi o l’abast del codi executat amb els tests) abans d’afegir noves
+		funcionalitats a la branca principal.
+			
+	S’ha d’entregar un informe on s’expliquen tots i cadascun dels tipus de test realitzats. A les aules
+	Moodle del Campus Virtual es podrà trobar un template per a confeccionar aquest informe. 
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 · Files to add:
-	- Guide to execute the program.
-	- File to explain the uses of the tests.
-
+	- Inform.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
