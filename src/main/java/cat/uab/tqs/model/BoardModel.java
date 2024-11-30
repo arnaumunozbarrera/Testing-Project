@@ -10,9 +10,7 @@ public class BoardModel {
     private  char miss;
 
     public BoardModel(int size, char water, char ship, char hit, char miss) {
-
     	//assert(size > 0):"The size of the board must be greater than 0" ;
-        
         this.grid = new char[size][size];
         this.water = water;
         this.ship = ship;

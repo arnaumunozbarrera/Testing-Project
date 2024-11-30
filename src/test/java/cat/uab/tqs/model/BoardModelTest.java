@@ -139,6 +139,38 @@ class BoardModelTest {
 		
 		assertFalse(board.isBetween(4,board.getSize()));
 	}
+	
+	@Test
+	void testIsBetweenCondition() {
+		
+		// Condition 1 coord => 0, false 
+
+		assertFalse(board.isBetween(-1,board.getSize()));
+		
+		// Condition 2 coord => 0, true 
+		
+		assertTrue(board.isBetween(2,board.getSize()));
+		
+		// Condition 1 coord < size, false 
+
+		assertFalse(board.isBetween(8,board.getSize()));
+		
+		// Condition 2 coord <size , true 
+		
+		assertTrue(board.isBetween(2,board.getSize()));
+	}
+	
+	@Test
+	void testIsBetweenDecision() {
+	
+		// Decision 1, false 
+
+		assertFalse(board.isBetween(-1,board.getSize()));
+		
+		// Decision 1, true 
+		
+		assertTrue(board.isBetween(2,board.getSize()));
+	}
 
 	@Test
 	void testIsCellEmpty() {
