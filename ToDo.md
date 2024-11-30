@@ -1,5 +1,5 @@
 ## Codi:
-### - 1 Path Coverage.
+### - 2 Path Coverage.
 ### - Fer ús d'un mock object de Mockito.
 ### - CI regles a GitHub.
 
