@@ -128,17 +128,18 @@ class BoardModelTest {
 	void testIsBetweenParticionsEquivalentsAndValorsLimitAndFrontera() {
 		
 		// En aquest test considerem una matriu 4x4, on els valors a provar són:
-		// Particions equivalents: vàlid (2), no vàlid (-1)
+		// Particions equivalents: vàlid (2), no vàlid (-8,8)
 		// Valors límit: 0 i 3
 		// Valors frontera: dins dels límits (0 i 3) i fora (-1 i 4)
 		
-		assertTrue(board.isBetween(2,board.getSize()));
+		assertFalse(board.isBetween(-8,board.getSize()));
 		assertFalse(board.isBetween(-1,board.getSize()));
 		assertTrue(board.isBetween(0,board.getSize()));
 		assertTrue(board.isBetween(1,board.getSize()));
+		assertTrue(board.isBetween(2,board.getSize()));
 		assertTrue(board.isBetween(3,board.getSize()));
-		
 		assertFalse(board.isBetween(4,board.getSize()));
+		assertFalse(board.isBetween(8,board.getSize()));
 	}
 	
 	@Test
