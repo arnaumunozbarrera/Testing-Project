@@ -22,4 +22,4 @@ public class MockMessageView extends MessageView {
     public boolean containsMessage(String message) {
     	return messages.contains(message);
     }
-}
+} 
