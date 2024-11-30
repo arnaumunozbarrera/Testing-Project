@@ -47,4 +47,4 @@ class MessageViewTest {
         
         assertEquals(message + System.lineSeparator(), outputStream.toString());
     }
-}
+} 
