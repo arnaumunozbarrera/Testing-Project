@@ -1,6 +1,8 @@
 package test.java.cat.uab.tqs.view;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -26,46 +28,58 @@ class InputViewTest {
     void tearDown() {
         System.setOut(originalOut);
     }
-
+    
     @Test
-    void testValidInputs() {
+    void testgetIntInputStatement() {
     	
-    	// (Inputs vàlid segons una matriu 8x8, (0-7)) 
-    	
-        String simulatedInput = "0\n7\n4\n3\n1\n";
+    	// Input invàlid segons i desprès un input vàlid segons una matriu 4x4
+        
+        String simulatedInput = "a\n1\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         InputView inputView = new InputView();
 
+        inputView.getIntInput("Enter a number: ");
+        String output = outputStream.toString();
+
+        assertTrue(output.contains("Invalid input. Please enter an integer."));        
+    }
+    
+    @Test
+    void testValidInputsParticionsEquivalentsAndValorsLimitAndFrontera() {
+    	
+    	// Inputs vàlid segons una matriu 4x4
+    	
+        String simulatedInput = "2\n0\n3\n";
+        System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
+
+        InputView inputView = new InputView();
+
+        assertEquals(2, inputView.getIntInput("Enter a number: "));
         assertEquals(0, inputView.getIntInput("Enter a number: "));
-        assertEquals(7, inputView.getIntInput("Enter a number: "));
-        assertEquals(4, inputView.getIntInput("Enter a number: "));
         assertEquals(3, inputView.getIntInput("Enter a number: "));
-        assertEquals(1, inputView.getIntInput("Enter a number: "));
     }
 
     @Test
-    void testOutOfRangeInputs() {
+    void testOutOfRangeInputsParticionsEquivalentsAndValorsLimitAndFrontera() {
     	
-    	// (Inputs no vàlids segons una matriu 8x8, (-1, 9, -4, 13)) 
+    	// Inputs no vàlids segons una matriu 4x4
     	
-        String simulatedInput = "-1\n9\n-4\n13\n";
+        String simulatedInput = "-1\n4\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         InputView inputView = new InputView();
 
         assertEquals(-1, inputView.getIntInput("Enter a number: "));
-        assertEquals(9, inputView.getIntInput("Enter a number: "));
-        assertEquals(-4, inputView.getIntInput("Enter a number: "));
-        assertEquals(13, inputView.getIntInput("Enter a number: "));
+        assertEquals(4, inputView.getIntInput("Enter a number: "));  
     }
 
     @Test
-    void testInvalidInputs() {	
+    void testInvalidInputsParticionsEquivalentsAndValorsLimitAndFrontera() {	
     	
-        // (Inputs no vàlids segons una matriu 8x8, (-lletres i decimals)) 
+        // Inputs no vàlids segons una matriu 4x4, (lletres i decimals) 
 
-        String simulatedInput = "a\nabcd\n3.1415\n5\n";
+        String simulatedInput = "a\nabcd\n3.1415\n2\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         InputView inputView = new InputView();
@@ -73,12 +87,16 @@ class InputViewTest {
         //inputView.getIntInput("Enter a number: "); 
         // 'a' -> Invalid
         // 'abcd' -> Invalid
-        // '3.14.15' -> Invalid
-        // '5' -> Valid
+        // '3.1415' -> Invalid
+        // '2' -> Valid
         
         // Comprovació de seleccionar l'únic valor valid entre els inputs
         
-        assertEquals(5, inputView.getIntInput("Enter a number: "));
+        assertEquals(2, inputView.getIntInput("Enter a number: "));
+        
+        String output = outputStream.toString();
+
+        assertTrue(output.contains("Invalid input. Please enter an integer."));
         
     }
 }
