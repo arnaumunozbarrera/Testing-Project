@@ -16,4 +16,4 @@ public class MockInputView extends InputView {
             throw new RuntimeException("No more inputs available in MockInputView.");
         }
     }
-}
+} 
