@@ -53,7 +53,7 @@ public class main {
         } else {
         	System.out.println();
             System.out.println("Player 2 (P2) wins!");
-            System.out.println("P2 ships still alive");
+            System.out.println("P1 ships still alive");
             for (int i = 1; i <= shipCount - player2Hits ; i++) {
             	System.out.println("Ship "+ i + " still alive");
             }
@@ -77,9 +77,17 @@ public class main {
         if (player1Hits2 == shipCount) {
         	System.out.println();
             System.out.println("Player 1 (P1) wins!");
+            System.out.println("P2 ships still alive");
+            for (int i = 1; i <= shipCount - player2Hits ; i++) {
+            	System.out.println("Ship "+ i + " still alive");
+            }
         } else {
         	System.out.println();
             System.out.println("Player 2 (P2) wins!");
+            System.out.println("P1 ships still alive");
+            for (int i = 1; i <= shipCount - player2Hits ; i++) {
+            	System.out.println("Ship "+ i + " still alive");
+            }
         }
 		*/
     }
