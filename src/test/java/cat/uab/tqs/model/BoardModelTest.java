@@ -51,6 +51,55 @@ class BoardModelTest {
 	}
 	
 	@Test
+	void testSetCellCondition() {
+		
+		// Condition 1 row, false
+		
+		assertFalse(board.setCell(15, 2,board.getSize(), 'S'));
+		
+		// Condition 2 row, true
+		
+		assertTrue(board.setCell(2, 2,board.getSize(), 'S'));
+		
+		// Condition 1 col, false
+		
+		assertFalse(board.setCell(2, 15,board.getSize(), 'S'));
+		
+		// Condition 2 col, true
+		
+		assertTrue(board.setCell(2, 2,board.getSize(), 'S'));
+
+		// Condition 1 size, false
+		
+		assertFalse(board.setCell(2, 2, -1, 'S'));
+
+		// Condition 2 size, true
+		
+		assertTrue(board.setCell(2, 2, 4, 'S'));
+
+		
+		// Condition 1 value, false
+		
+		assertFalse(board.setCell(2, 2,board.getSize(), '?'));
+
+		// Condition 2 value, true
+		
+		assertTrue(board.setCell(2, 2,board.getSize(), 'S'));
+	}
+	
+	@Test
+	void testSetCellDecision() {
+		
+		// Decision 1, false
+		
+		assertFalse(board.setCell(2, 2,board.getSize(), '?'));
+		
+		// Decision 1, true
+		
+		assertTrue(board.setCell(2, 2,board.getSize(), 'S'));
+	}
+	
+	@Test
 	void testIsValidCharStatementAndCondition() {
 		
 		// Statement & Condition coverage
@@ -61,6 +110,18 @@ class BoardModelTest {
 		assertTrue(board.isValidChar('O'));
 		assertFalse(board.isValidChar('?'));
 		assertFalse(board.isValidChar('a'));
+	}
+	
+	@Test
+	void testIsValidCharDecision() {
+		
+		// Decision 1, false 
+
+		assertFalse(board.isValidChar('?'));
+		
+		// Decision 1, true 
+		
+		assertTrue(board.isValidChar('S'));
 	}
 	
 	@Test
