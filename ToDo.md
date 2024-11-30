@@ -1,6 +1,4 @@
 ## Codi:
-### - 1 Condition Coverage.
-### - 1 Decision Coverage.
 ### - 1 Path Coverage.
 ### - Fer ús d'un mock object de Mockito.
 ### - CI regles a GitHub.
