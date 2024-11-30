@@ -17,5 +17,5 @@ public class InputView {
             }
         }
         return value;
-    }
+    } 
 }
