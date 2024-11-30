@@ -27,7 +27,7 @@ class MessageViewTest {
     }
 
     @Test
-    void testShowMessage() {
+    void testShowMessageStatement1() {
         MessageView messageView = new MessageView();
         
         String message = "Test message";
@@ -38,7 +38,7 @@ class MessageViewTest {
     }
 
     @Test
-    void testShowMessage_EmptyMessage() {
+    void testShowMessage_EmptyMessageStatement2() {
         MessageView messageView = new MessageView();
         
         String message = "";
