@@ -278,7 +278,58 @@ class BattleshipControllerTest {
 	    assertEquals('S', board3.getCell(0, 0));
 	    assertEquals('S', board3.getCell(1, 1));
 	}
+	
+	@Test
+	void testPlaceShipsPath() {
+		
+	    MockInputView inputView = new MockInputView(new int[] {
+	        5, 5, // Path 1: Coords fora dels límits
+	        1, 1, // Path 2: Casella ocupada
+	        2, 2  // Path 3: Coords vàlides
+	    });
+	    
+	    MockMessageView messageView = new MockMessageView();
+	    BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
+	    
+	    board.setCell(0, 0, board.getSize(), 'S'); // Fem set de la casella (1,1) per pasar pel path de casella ocupada
+	
+	    BattleshipController game = new BattleshipController(board, new BoardView(), inputView, messageView, "prova");
+	
+	    game.placeShips(1);
+	
+	    assertTrue(messageView.containsMessage("Coordinates out of bounds. Try again."));
+	    assertTrue(messageView.containsMessage("Cell already occupied. Try again."));
+	
+	    assertEquals('S', board.getCell(1, 1));
+	}
+	
+	@Test
+	void testTakeTurnPath() {
 
+		MockInputView inputView = new MockInputView(new int[] {
+	        5, 5, // Path 1: Coords fora dels límit
+	        1, 1, // Path 2: Casella ja atacada
+	        2, 2, // Path 3.1: Ship hitted
+	        3, 3  // Path 3.2: Casella buïda 
+	    });
+	    MockMessageView messageView = new MockMessageView();
+	    BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
+	    board.setCell(0, 0, board.getSize(), 'X'); // Casella hitted
+	    board.setCell(1, 1, board.getSize(), 'S'); // Ships situat a (2,2)
+
+	    BattleshipController game = new BattleshipController(board, new BoardView(), inputView, messageView, "prova");
+
+	    int resultHit = game.takeTurn(); // resultHit = 1
+	    int resultMiss = game.takeTurn(); // resultMiss = 0
+
+	    assertTrue(messageView.containsMessage("Coordinates out of bounds. Try again."));
+	    assertTrue(messageView.containsMessage("Already targeted. Try again."));
+	    assertTrue(messageView.containsMessage("Hit!"));
+	    assertTrue(messageView.containsMessage("Miss!"));
+
+	    assertEquals(1, resultHit); 
+	    assertEquals(0, resultMiss); 
+	}
 
 }
 
