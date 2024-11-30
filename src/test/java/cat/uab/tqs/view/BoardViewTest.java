@@ -30,12 +30,10 @@ class BoardViewTest {
     }
 
     @Test
-    void testPrintBoardWithHiddenShips() {
-    	
-    	// Primera versió de prova 
-        
-        BoardModel board = new BoardModel(4, '-', 's', 'X', 'O');
-        board.setCell(0, 0, board.getSize() ,'s'); 
+    void testPrintBoardWithHiddenShipsStatment1() {
+    	        
+        BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
+        board.setCell(0, 0, board.getSize() ,'S'); 
         board.setCell(1, 1, board.getSize() ,'X'); 
         board.setCell(2, 2, board.getSize() ,'O'); 
 
@@ -60,18 +58,14 @@ class BoardViewTest {
             expectedOutput.replace("\r\n", "\n"), 
             outputStream.toString().replace("\r\n", "\n")
         );
-        
-        // Segona versió de prova 
     }
 
 
     @Test
-    void testPrintBoardWithVisibleShips() {
-    	
-    	// Primera versió de prova 
-    	
-    	BoardModel board = new BoardModel(4, '-', 's', 'X', 'O');
-        board.setCell(0, 0, board.getSize() , 's'); 
+    void testPrintBoardWithVisibleShipsStatment2() {
+    	    	
+    	BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
+        board.setCell(0, 0, board.getSize() , 'S'); 
         board.setCell(1, 1, board.getSize() ,'X'); 
         board.setCell(2, 2, board.getSize() ,'O'); 
 
@@ -87,7 +81,7 @@ class BoardViewTest {
         String lineSeparator = System.lineSeparator();
         String expectedOutput = 
                 "  1 2 3 4 " + lineSeparator +
-                "1 s - - - " + lineSeparator +
+                "1 S - - - " + lineSeparator +
                 "2 - X - - " + lineSeparator +
                 "3 - - O - " + lineSeparator +
                 "4 - - - - " + lineSeparator;
@@ -97,17 +91,14 @@ class BoardViewTest {
             outputStream.toString().replace("\r\n", "\n")
         );
         
-        // Segona versió de prova 
     }
 
     @Test
-    void testPrintEmptyBoard() {
+    void testPrintEmptyBoardStatment3() {
     	
-   	 	// Primera versió de prova 
+   	 	// Amb Ships visibles
     	
-   	 	// Primera prova (Ships visibles)
-    	
-    	BoardModel board = new BoardModel(4, '-', 's', 'X', 'O');
+    	BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
 
         BoardView boardView = new BoardView();
 
@@ -132,9 +123,9 @@ class BoardViewTest {
         );
         
         
-   	 	// Segona prova (Ships no visibles)
+   	 	// Amb Ships no visibles
         
-        BoardModel board2 = new BoardModel(4, '-', 's', 'X', 'O');
+        BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
 
         BoardView boardView2 = new BoardView();
 
@@ -157,21 +148,17 @@ class BoardViewTest {
             expectedOutput2.replace("\r\n", "\n"), 
             outputStream2.toString().replace("\r\n", "\n")
         );
-        
-   	 	// Segona versió de prova 
     }
 
     @Test
-    void testPrintFullBoard() {
+    void testPrintFullBoardStatment4() {
     	
-    	// Primera versió de prova 
-    	
-		// Primera prova (Ships a tot el board, ships visibles)
+		// Amb Ships a tot el board i ships visibles
 		
-		BoardModel board = new BoardModel(4, '-', 's', 'X', 'O');
+		BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
 		for (int row = 0; row < board.getSize(); row++) {
 		    for (int col = 0; col < board.getSize(); col++) {
-		        board.setCell(row, col, board.getSize() , 's');
+		        board.setCell(row, col, board.getSize() , 'S');
 		    }
 		}
 		
@@ -187,22 +174,22 @@ class BoardViewTest {
 		String lineSeparator = System.lineSeparator();
 		String expectedOutput = 
 		        "  1 2 3 4 " + lineSeparator +
-		        "1 s s s s " + lineSeparator +
-		        "2 s s s s " + lineSeparator +
-		        "3 s s s s " + lineSeparator +
-		        "4 s s s s " + lineSeparator;
+		        "1 S S S S " + lineSeparator +
+		        "2 S S S S " + lineSeparator +
+		        "3 S S S S " + lineSeparator +
+		        "4 S S S S " + lineSeparator;
 		
 		assertEquals(
 		    expectedOutput.replace("\r\n", "\n"), 
 		    outputStream.toString().replace("\r\n", "\n")
 		    );
 		    
-		 // Segona prova (Ships a tot el board, ships no visibles)
+		 // Amb Ships a tot el board i ships no visibles
 		
-		BoardModel board2 = new BoardModel(4, '-', 's', 'X', 'O');
+		BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
 		for (int row = 0; row < board2.getSize(); row++) {
 		    for (int col = 0; col < board2.getSize(); col++) {
-		        board2.setCell(row, col, board.getSize() ,'s');
+		        board2.setCell(row, col, board.getSize() ,'S');
 		    }
 		}
 		
@@ -228,9 +215,9 @@ class BoardViewTest {
 		    outputStream2.toString().replace("\r\n", "\n")
 		    );
 		
-		 // Tercera prova (Hits a tot el board)
+		 // Amb Hits a tot el board
 		
-		BoardModel board3 = new BoardModel(4, '-', 's', 'X', 'O');
+		BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
 		for (int row = 0; row < board3.getSize(); row++) {
 		    for (int col = 0; col < board3.getSize(); col++) {
 		        board3.setCell(row, col, board.getSize() , 'X');
@@ -259,9 +246,9 @@ class BoardViewTest {
 		    outputStream3.toString().replace("\r\n", "\n")
 		    );
 		
-		 // Quarta prova (Misses a tot el board)
+		 // Amb Misses a tot el board
 		
-		BoardModel board4 = new BoardModel(4, '-', 's', 'X', 'O');
+		BoardModel board4 = new BoardModel(4, '-', 'S', 'X', 'O');
 		for (int row = 0; row < board4.getSize(); row++) {
 		    for (int col = 0; col < board4.getSize(); col++) {
 		        board4.setCell(row, col, board.getSize() ,'O');
@@ -289,18 +276,16 @@ class BoardViewTest {
 		    expectedOutput4.replace("\r\n", "\n"), 
 		    outputStream4.toString().replace("\r\n", "\n")
 		    );
-		    
-		 // Segona versió de prova 
     }
     
     @Test
-    void testLoopSimple() {
+    void testPrintBoardLoopSimple() {
     	
-    	// Considerem board.size max. 8
+    	// Considerem la mida màxima de board = 8
     	
     	// 1x1 board
     	
-        BoardModel board1 = new BoardModel(1, '-', 's', 'X', 'O'); // 1x1 board
+        BoardModel board1 = new BoardModel(1, '-', 'S', 'X', 'O'); // 1x1 board
         BoardView boardView1 = new BoardView();
         boardView1.printBoard(board1, false);
 
@@ -317,8 +302,9 @@ class BoardViewTest {
         outputStream.reset();
 
         // 2x2 board
-        BoardModel board2 = new BoardModel(2, '-', 's', 'X', 'O'); // 2x2 board
-        board2.setCell(0, 0, board2.getSize(), 's');
+        
+        BoardModel board2 = new BoardModel(2, '-', 'S', 'X', 'O'); // 2x2 board
+        board2.setCell(0, 0, board2.getSize(), 'S');
         board2.setCell(1, 1, board2.getSize(), 'X');
 
         BoardView boardView2 = new BoardView();
@@ -326,7 +312,7 @@ class BoardViewTest {
 
         String expectedOutput2 =
                 "  1 2 " + lineSeparator +
-                "1 s - " + lineSeparator +
+                "1 S - " + lineSeparator +
                 "2 - X " + lineSeparator;
 
         assertEquals(
@@ -337,10 +323,11 @@ class BoardViewTest {
         outputStream.reset();
 
         // 3x3 board
-        BoardModel board3 = new BoardModel(3, '-', 's', 'X', 'O'); // 3x3 board
+        
+        BoardModel board3 = new BoardModel(3, '-', 'S', 'X', 'O'); // 3x3 board
         for (int row = 0; row < board3.getSize(); row++) {
             for (int col = 0; col < board3.getSize(); col++) {
-                board3.setCell(row, col, board3.getSize(), 's');
+                board3.setCell(row, col, board3.getSize(), 'S');
             }
         }
 
@@ -349,9 +336,9 @@ class BoardViewTest {
 
         String expectedOutput3 =
                 "  1 2 3 " + lineSeparator +
-                "1 s s s " + lineSeparator +
-                "2 s s s " + lineSeparator +
-                "3 s s s " + lineSeparator;
+                "1 S S S " + lineSeparator +
+                "2 S S S " + lineSeparator +
+                "3 S S S " + lineSeparator;
 
         assertEquals(
                 expectedOutput3.replace("\r\n", "\n"),
@@ -361,10 +348,11 @@ class BoardViewTest {
         outputStream.reset();
         
         // 6x6 board
-        BoardModel board4 = new BoardModel(6, '-', 's', 'X', 'O'); // 6x6 board
+        
+        BoardModel board4 = new BoardModel(6, '-', 'S', 'X', 'O'); // 6x6 board
         for (int row = 0; row < board4.getSize(); row++) {
             for (int col = 0; col < board4.getSize(); col++) {
-                board4.setCell(row, col, board4.getSize(), 's');
+                board4.setCell(row, col, board4.getSize(), 'S');
             }
         }
 
@@ -373,12 +361,12 @@ class BoardViewTest {
 
         String expectedOutput4 =
                 "  1 2 3 4 5 6 " + lineSeparator +
-                "1 s s s s s s " + lineSeparator +
-                "2 s s s s s s " + lineSeparator +
-                "3 s s s s s s " + lineSeparator +
-                "4 s s s s s s " + lineSeparator +
-                "5 s s s s s s " + lineSeparator +
-                "6 s s s s s s " + lineSeparator;
+                "1 S S S S S S " + lineSeparator +
+                "2 S S S S S S " + lineSeparator +
+                "3 S S S S S S " + lineSeparator +
+                "4 S S S S S S " + lineSeparator +
+                "5 S S S S S S " + lineSeparator +
+                "6 S S S S S S " + lineSeparator;
 
         assertEquals(
                 expectedOutput4.replace("\r\n", "\n"),
@@ -388,10 +376,11 @@ class BoardViewTest {
         outputStream.reset();
 
         // 7x7 board
-        BoardModel board5 = new BoardModel(7, '-', 's', 'X', 'O'); // 7x7 board
+        
+        BoardModel board5 = new BoardModel(7, '-', 'S', 'X', 'O'); // 7x7 board
         for (int row = 0; row < board5.getSize(); row++) {
             for (int col = 0; col < board5.getSize(); col++) {
-                board5.setCell(row, col, board5.getSize(), 's');
+                board5.setCell(row, col, board5.getSize(), 'S');
             }
         }
 
@@ -400,13 +389,13 @@ class BoardViewTest {
 
         String expectedOutput5 =
                 "  1 2 3 4 5 6 7 " + lineSeparator +
-                "1 s s s s s s s " + lineSeparator +
-                "2 s s s s s s s " + lineSeparator +
-                "3 s s s s s s s " + lineSeparator +
-                "4 s s s s s s s " + lineSeparator +
-                "5 s s s s s s s " + lineSeparator +
-                "6 s s s s s s s " + lineSeparator +
-                "7 s s s s s s s " + lineSeparator;
+                "1 S S S S S S S " + lineSeparator +
+                "2 S S S S S S S " + lineSeparator +
+                "3 S S S S S S S " + lineSeparator +
+                "4 S S S S S S S " + lineSeparator +
+                "5 S S S S S S S " + lineSeparator +
+                "6 S S S S S S S " + lineSeparator +
+                "7 S S S S S S S " + lineSeparator;
 
         assertEquals(
                 expectedOutput5.replace("\r\n", "\n"),
@@ -416,10 +405,11 @@ class BoardViewTest {
         outputStream.reset();
 
         // 8x8 board
-        BoardModel board6 = new BoardModel(8, '-', 's', 'X', 'O'); // 8x8 board
+        
+        BoardModel board6 = new BoardModel(8, '-', 'S', 'X', 'O'); // 8x8 board
         for (int row = 0; row < board6.getSize(); row++) {
             for (int col = 0; col < board6.getSize(); col++) {
-                board6.setCell(row, col, board6.getSize(), 's');
+                board6.setCell(row, col, board6.getSize(), 'S');
             }
         }
 
@@ -428,14 +418,14 @@ class BoardViewTest {
 
         String expectedOutput6 =
                 "  1 2 3 4 5 6 7 8 " + lineSeparator +
-                "1 s s s s s s s s " + lineSeparator +
-                "2 s s s s s s s s " + lineSeparator +
-                "3 s s s s s s s s " + lineSeparator +
-                "4 s s s s s s s s " + lineSeparator +
-                "5 s s s s s s s s " + lineSeparator +
-                "6 s s s s s s s s " + lineSeparator +
-                "7 s s s s s s s s " + lineSeparator +
-                "8 s s s s s s s s " + lineSeparator;
+                "1 S S S S S S S S " + lineSeparator +
+                "2 S S S S S S S S " + lineSeparator +
+                "3 S S S S S S S S " + lineSeparator +
+                "4 S S S S S S S S " + lineSeparator +
+                "5 S S S S S S S S " + lineSeparator +
+                "6 S S S S S S S S " + lineSeparator +
+                "7 S S S S S S S S " + lineSeparator +
+                "8 S S S S S S S S " + lineSeparator;
 
         assertEquals(
                 expectedOutput6.replace("\r\n", "\n"),
@@ -445,34 +435,40 @@ class BoardViewTest {
         outputStream.reset();
     }  
     
-    
     @Test
-    void testLoopsNotSimples() {
+    void testPrintBoardLoopsNotSimples() {
+    	    	
+    	// Creem una matriu 8x8 per simular el grid
     	
-        // Crear una matriz 8x8 para simular el grid
+    	// given
     	
-        char[][] mockGrid = new char[8][8]; // Matriz 8x8
+        char[][] mockGrid = new char[8][8]; 
         for (int i = 0; i < 8; i++) {
             for (int j = 0; j < 8; j++) {
-                mockGrid[i][j] = '-'; // Rellenar la matriz con valores por defecto
+                mockGrid[i][j] = '-'; 
             }
         }
 
-        // Crear un mock de BoardModel
+        // Creació del mock de BoardModel fent servir Mockito
+        
         BoardModel mockBoard = mock(BoardModel.class);
+        
+        // when
 
         when(mockBoard.getGrid()).thenReturn(mockGrid);
-        when(mockBoard.getSize()).thenReturn(8); // Tamaño 8x8
-        when(mockBoard.getShipChar()).thenReturn('S'); // Simular un carácter para los barcos
-        when(mockBoard.getCell(0, 0)).thenReturn('-'); // Simulación de celdas
-        when(mockBoard.getWater(0, 0)).thenReturn('-'); // Simulación de agua
+        when(mockBoard.getSize()).thenReturn(8); 
+        when(mockBoard.getShipChar()).thenReturn('S'); 
+        when(mockBoard.getCell(0, 0)).thenReturn('-'); 
+        when(mockBoard.getWater(0, 0)).thenReturn('-'); 
 
+        // then
+        
         BoardView boardView = new BoardView();
 
-        // Ejecutar el método printBoard con hideShips = false
         boardView.printBoard(mockBoard, false);
 
-        // Verificar que se haya invocado el método getGrid() exactamente 1 vez
+        // Verifiquem que el mètode getGrid() hagi estat utilitzat nomès un cop
+        
         verify(mockBoard, times(1)).getGrid();
       
     }
