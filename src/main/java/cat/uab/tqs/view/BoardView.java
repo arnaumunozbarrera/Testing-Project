@@ -14,7 +14,7 @@ public class BoardView {
 
         for (int row = 0; row < grid.length; row++) {
             System.out.print(row + 1 + " ");
-            for (int col = 0; col < grid[row].length; col++) {
+            for (int col = 0; col < grid[row].length; col++) { 
                 char cell = grid[row][col];
                 if (hideShips) {
                 	if(cell == board.getShipChar()) {
