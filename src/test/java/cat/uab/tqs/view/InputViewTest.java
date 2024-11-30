@@ -99,4 +99,4 @@ class InputViewTest {
         assertTrue(output.contains("Invalid input. Please enter an integer."));
         
     }
-}
+} 
