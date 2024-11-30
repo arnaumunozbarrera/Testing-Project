@@ -16,10 +16,12 @@ import main.java.cat.uab.tqs.model.BoardModel;
 class BattleshipControllerTest {
 
 	@Test
-	void testPlaceShips() {
+	void testPlaceShipsStatement() {
 		
 		//Statement Coverage:
-		// 1. Casillas vàlidas
+		
+		// 1. Caselles vàlides
+		
 		BoardModel board1 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView1 = new BoardView();
 		String name1 = "prova";
@@ -30,7 +32,8 @@ class BattleshipControllerTest {
 		game1.placeShips(1);
 		assertEquals('S', board1.getCell(0, 0));
 		
-		// 2. Coordenadas no vàlidas
+		// 2. Coordenades no vàlides
+		
 		BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView2 = new BoardView();
 		String name2 = "prova";
@@ -40,12 +43,15 @@ class BattleshipControllerTest {
 		
 		game2.placeShips(1);
 		assertTrue(messageView2.containsMessage("Coordinates out of bounds. Try again."));
+		assertEquals('S', board2.getCell(0, 0));
+
 		
-		// 3. Casilla que ya esta llena
+		// 3. Casella ja feta servir
+		
 		BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView3 = new BoardView();
 		String name3 = "prova";
-		MockInputView inputView3 = new MockInputView(new int[] {1,1,1,1,2,2}); //Primer afegim (1,1), despres tornem a intentar afegir (1,1) que no hauria de deixar i afegir 
+		MockInputView inputView3 = new MockInputView(new int[] {1,1,1,1,2,2}); // Afegim (1,1), tornem a intentar afegir (1,1) i s'afegeix de nou
 		MockMessageView messageView3 = new MockMessageView();
 		BattleshipController game3 = new BattleshipController(board3, boardView3, inputView3, messageView3, name3);
 		
@@ -55,8 +61,55 @@ class BattleshipControllerTest {
 	}
 	
 	@Test
-	void testTakeTurn() {
-		// 1. Tiro con exito 
+	void testPlaceShipsStatement2() {
+		
+		//Statement Coverage:
+		
+		// 1. Caselles vàlides
+		
+	    BoardModel board1 = new BoardModel(4, '-', 'S', 'X', 'O');
+	    BoardView boardView1 = new BoardView();
+	    String name1 = "prova";
+	    MockInputView inputView1 = new MockInputView(new int[] {1, 1});
+	    MockMessageView messageView1 = new MockMessageView();
+	    BattleshipController game1 = new BattleshipController(board1, boardView1, inputView1, messageView1, name1);
+
+	    game1.placeShips2(1);
+	    assertEquals('S', board1.getCell(0, 0));
+
+	    // 2. Coordenades no vàlides
+	    
+	    BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
+	    BoardView boardView2 = new BoardView();
+	    String name2 = "prova";
+	    MockInputView inputView2 = new MockInputView(new int[] {6, 6, 1, 1}); 
+	    MockMessageView messageView2 = new MockMessageView();
+	    BattleshipController game2 = new BattleshipController(board2, boardView2, inputView2, messageView2, name2);
+
+	    game2.placeShips2(1);
+	    assertTrue(messageView2.containsMessage("Coordinates out of bounds. Try again."));
+	    assertEquals('S', board2.getCell(0, 0));
+
+		// 3. Casella ja feta servir
+
+	    BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
+	    BoardView boardView3 = new BoardView();
+	    String name3 = "prova";
+	    MockInputView inputView3 = new MockInputView(new int[] {1, 1, 1, 1, 2, 2}); 
+	    MockMessageView messageView3 = new MockMessageView();
+	    BattleshipController game3 = new BattleshipController(board3, boardView3, inputView3, messageView3, name3);
+
+	    game3.placeShips2(2);
+	    assertTrue(messageView3.containsMessage("Cell already occupied. Try again."));
+	    assertEquals('S', board3.getCell(0, 0));
+	    assertEquals('S', board3.getCell(1, 1));
+	}
+	
+	@Test
+	void testTakeTurnStatement() {
+		
+		// 1. Jugada amb èxit
+		
 		BoardModel board1 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView1 = new BoardView();
 		String name1 = "prova";
@@ -71,7 +124,8 @@ class BattleshipControllerTest {
 		assertEquals('X',board1.getCell(0, 0));
 		assertTrue(messageView1.containsMessage("Hit!"));
 		
-		// 2. Fallo (casilla vacia)
+		// 2. Miss (casella buïda)
+		
 		BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView2 = new BoardView();
 		String name2 = "prova";
@@ -84,7 +138,8 @@ class BattleshipControllerTest {
 		assertEquals('O', board2.getCell(1, 1));
 		assertTrue(messageView2.containsMessage("Miss!"));
 		
-		// 3. Casilla ya targeteada por barco descubierto
+		// 3. Casella ja feta servir per ship ja descobert 
+		
 		BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView3 = new BoardView();
 		String name3 = "prova";
@@ -101,11 +156,12 @@ class BattleshipControllerTest {
 		assertTrue(messageView3.containsMessage("Already targeted. Try again."));
 		assertTrue(messageView3.containsMessage("Miss!"));
 		
-		// 4. Casilla ya fallada
+		// 3. Casella ja feta servir per Miss previ 
+		
 		BoardModel board4 = new BoardModel(4, '-', 'S', 'X', 'O');
 		BoardView boardView4 = new BoardView();
 		String name4 = "prova";
-		MockInputView inputView4 = new MockInputView(new int[] {1,1,2,2}); //Primer afegim (1,1), despres tornem a intentar afegir (1,1) que no hauria de deixar i afegir 
+		MockInputView inputView4 = new MockInputView(new int[] {1,1,2,2});
 		MockMessageView messageView4 = new MockMessageView();
 		BattleshipController game4 = new BattleshipController(board4, boardView4, inputView4, messageView4, name4);
 		
@@ -114,15 +170,34 @@ class BattleshipControllerTest {
 		
 		assertEquals(0,result4);
 		assertEquals('O', board4.getCell(0, 0));
-		assertEquals('O', board4.getCell(1, 1));
+		assertEquals('O', board3.getCell(1, 1));
 		assertTrue(messageView4.containsMessage("Already targeted. Try again."));
 		assertTrue(messageView4.containsMessage("Miss!"));
+		
+		// 4. Casella ja fallada
+		
+		BoardModel board5 = new BoardModel(4, '-', 'S', 'X', 'O');
+		BoardView boardView5 = new BoardView();
+		String name5 = "prova";
+		MockInputView inputView5 = new MockInputView(new int[] {1,1,2,2}); //Primer afegim (1,1), despres tornem a intentar afegir (1,1) que no hauria de deixar i afegir 
+		MockMessageView messageView5 = new MockMessageView();
+		BattleshipController game5 = new BattleshipController(board5, boardView5, inputView5, messageView5, name5);
+		
+		board5.setCell(0, 0, board5.getSize(), 'O');
+		int result5 = game5.takeTurn();
+		
+		assertEquals(0,result5);
+		assertEquals('O', board5.getCell(0, 0));
+		assertEquals('O', board5.getCell(1, 1));
+		assertTrue(messageView5.containsMessage("Already targeted. Try again."));
+		assertTrue(messageView5.containsMessage("Miss!"));
 	}
 	
 	@Test
-    void testLoopSimple() {
+    void testPlaceShipsLoopSimple() {
 		
-		// Caso 1: Colocando un solo barco correctamente
+		// 1. Placement d'un ship correctament
+		
 	    BoardModel board1 = new BoardModel(4, '-', 'S', 'X', 'O');
 	    
 	    BoardView boardView1 = new BoardView();
@@ -133,40 +208,77 @@ class BattleshipControllerTest {
 	    
 	    game1.placeShips(1);
 	    
-	    // Verificar que el barco se haya colocado en (1,1)
-	    
-	    assertEquals('S', board1.getCell(0, 0)); // Las coordenadas internas del tablero son 0,0
+	    assertEquals('S', board1.getCell(0, 0)); 
 
-	    // Caso 2: Intentando colocar un barco fuera de los límites
+	    // 2. Placement d'un ship fora dels limits
 	    
 	    BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
-	    MockInputView inputView2 = new MockInputView(new int[] {5,5,1,1}); // Primero intenta fuera de límites (5,5), luego coloca en (1,1)
+	    MockInputView inputView2 = new MockInputView(new int[] {5,5,1,1}); // Primer intent a (5,5), placement final a (1,1)
 	    MockMessageView messageView2 = new MockMessageView();
 	    BattleshipController game2 = new BattleshipController(board2, boardView1, inputView2, messageView2, name1);
 
 	    game2.placeShips(1);
-	    assertTrue(messageView2.containsMessage("Coordinates out of bounds. Try again.")); // Debe mostrar mensaje de error para coordenadas fuera de límites
-
-	    // Verificar que el barco se colocó en la posición válida (1,1)
+	    assertTrue(messageView2.containsMessage("Coordinates out of bounds. Try again.")); // Missatge d'error per (5,5)
 	    
 	    assertEquals('S', board2.getCell(0, 0));
 
-	    // Caso 3: Intentando colocar un barco en una casilla ocupada
+	    // 3. Placement d'un ship a una casella ja feta servir
 	    
 	    BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
-	    board3.setCell(0, 0, board3.getSize(), 'S'); // Marca (1,1) como ocupada
-	    MockInputView inputView3 = new MockInputView(new int[] {1,1,2,2}); // Primero intenta colocar en (1,1), luego en (2,2)
+	    board3.setCell(0, 0, board3.getSize(), 'S'); 
+	    MockInputView inputView3 = new MockInputView(new int[] {1,1,2,2}); // Primer intent a (1,1), placement final a (2,2)
 	    MockMessageView messageView3 = new MockMessageView();
 	    BattleshipController game3 = new BattleshipController(board3, boardView1, inputView3, messageView3, name1);
 
-	    game3.placeShips(2);
-	    assertTrue(messageView3.containsMessage("Cell already occupied. Try again.")); // Debe mostrar mensaje de error para casilla ocupada
-
-	    // Verificar que el barco se colocó en la posición válida (2,2)
+	    game3.placeShips(1);
+	    assertTrue(messageView3.containsMessage("Cell already occupied. Try again.")); // Missatge d'error per casella ocupada
 	    
+	    assertEquals('S', board3.getCell(0, 0));
 	    assertEquals('S', board3.getCell(1, 1));
     } 
+	
+	
+	@Test
+	void testPlaceShipsLoopSimple2() {
+
+		// 1. Placement d'un ship correctament
+		
+	    BoardModel board1 = new BoardModel(4, '-', 'S', 'X', 'O');
+	    BoardView boardView1 = new BoardView();
+	    String name1 = "prova";
+	    MockInputView inputView1 = new MockInputView(new int[]{1, 1}); 
+	    MockMessageView messageView1 = new MockMessageView();
+	    BattleshipController game1 = new BattleshipController(board1, boardView1, inputView1, messageView1, name1);
+
+	    game1.placeShips2(1);
+
+	    assertEquals('S', board1.getCell(0, 0));
+
+	    // 2. Placement d'un ship fora dels limits
+	    
+	    BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
+	    MockInputView inputView2 = new MockInputView(new int[]{5, 5, 1, 1}); 
+	    MockMessageView messageView2 = new MockMessageView();
+	    BattleshipController game2 = new BattleshipController(board2, boardView1, inputView2, messageView2, name1);
+
+	    game2.placeShips2(1);
+	    assertTrue(messageView2.containsMessage("Coordinates out of bounds. Try again.")); 
+	    assertEquals('S', board2.getCell(0, 0));
+
+	    // 3. Placement d'un ship a una casella ja feta servir
+	    
+	    BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
+	    board3.setCell(0, 0, board3.getSize(), 'S'); 
+	    MockInputView inputView3 = new MockInputView(new int[]{1, 1, 2, 2}); 
+	    MockMessageView messageView3 = new MockMessageView();
+	    BattleshipController game3 = new BattleshipController(board3, boardView1, inputView3, messageView3, name1);
+
+	    game3.placeShips2(1);
+	    assertTrue(messageView3.containsMessage("Cell already occupied. Try again.")); 
+	    assertEquals('S', board3.getCell(0, 0));
+	    assertEquals('S', board3.getCell(1, 1));
+	}
+
 
 }
-
 
