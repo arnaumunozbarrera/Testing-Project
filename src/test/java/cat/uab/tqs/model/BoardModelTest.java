@@ -11,38 +11,50 @@ class BoardModelTest {
 	private BoardModel board = new BoardModel(4, '-', 'S', 'X', 'O');
 
 	@Test
-	void testSetCell() {
-		//cas 1: row vàlid, col vàlid, size vàlid, value vàlid
+	void testSetCellPairwise() {
+		
+		// 1. row vàlid, col vàlid, size vàlid, value vàlid
+		
 		assertTrue(board.setCell(2, 2,board.getSize(), 'S'));
 		
-		//cas 2: row vàlid, col vàlid, size vàlid, value invàlid
+		// 2. row vàlid, col vàlid, size vàlid, value invàlid
+		
 		assertFalse(board.setCell(2, 2,board.getSize(), '?'));
 		
-		//cas 3: row vàlid, col vàlid, size invàlid, value vàlid
+		// 3. row vàlid, col vàlid, size invàlid, value vàlid
+		
 		assertFalse(board.setCell(2, 2,-1, 'S'));
 		
-		//cas 4: row vàlid, col invàlid, size vàlid, value vàlid
+		// 4. row vàlid, col invàlid, size vàlid, value vàlid
+		
 		assertFalse(board.setCell(2, 9,board.getSize(), 'X'));
 		
-		//cas 5: row vàlid, col invàlid, size vàlid, value invàlid
+		// 5. row vàlid, col invàlid, size vàlid, value invàlid
+		
 		assertFalse(board.setCell(2, 9,board.getSize(), '?'));
 		
-		//cas 6: row invàlid, col vàlid, size vàlid, value vàlid
+		// 6. row invàlid, col vàlid, size vàlid, value vàlid
+		
 		assertFalse(board.setCell(9, 2,board.getSize(), 'O'));
 		
-		//cas 7: row invàlid, col vàlid, size vàlid, value invàlid
+		// 7. row invàlid, col vàlid, size vàlid, value invàlid
+		
 		assertFalse(board.setCell(9, 2,board.getSize(), '?'));
 		
-		//cas 8: row invàlid, col invàlid, size invàlid, value vàlid
+		// 8. row invàlid, col invàlid, size invàlid, value vàlid
+		
 		assertFalse(board.setCell(9, 9,-1, '-'));
 		
-		//cas 9: row invàlid, col invàlid, size invàlid, value invàlid
+		// 9. row invàlid, col invàlid, size invàlid, value invàlid
+		
 		assertFalse(board.setCell(9, 9,-1, '?'));
 	}
 	
 	@Test
-	void testIsValidChar() {
-		//Hacer Condition coverage y state coverage 
+	void testIsValidCharStatementAndCondition() {
+		
+		// Statement & Condition coverage
+		
 		assertTrue(board.isValidChar('-'));
 		assertTrue(board.isValidChar('S'));
 		assertTrue(board.isValidChar('X'));
@@ -52,34 +64,40 @@ class BoardModelTest {
 	}
 	
 	@Test
-	void testIsBetween() {
-		//Teniendo en cuenta una matriz de 4x4, particions equivalents de row: -4,0,1,2,3,4,5,8
-		assertFalse(board.isBetween(-4,board.getSize()));
+	void testIsBetweenParticionsEquivalentsAndValorsLimitAndFrontera() {
+		
+		// En aquest test considerem una matriu 4x4, on els valors a provar són:
+		// Particions equivalents: vàlid (2), no vàlid (-1)
+		// Valors límit: 0 i 3
+		// Valors frontera: dins dels límits (0 i 3) i fora (-1 i 4)
+		
+		assertTrue(board.isBetween(2,board.getSize()));
 		assertFalse(board.isBetween(-1,board.getSize()));
-		assertTrue(board.isBetween(0, board.getSize())); 
-		assertTrue(board.isBetween(1, board.getSize()));
-		assertTrue(board.isBetween(2, board.getSize()));
-		assertTrue(board.isBetween(3, board.getSize()));
-		assertFalse(board.isBetween(4, board.getSize()));
-		assertFalse(board.isBetween(5, board.getSize()));
-		assertFalse(board.isBetween(8, board.getSize()));
-
+		assertTrue(board.isBetween(0,board.getSize()));
+		assertTrue(board.isBetween(3,board.getSize()));
+		
+		assertFalse(board.isBetween(4,board.getSize()));
 	}
 
 	@Test
 	void testIsCellEmpty() {
-		//Celda (1,1) --> water
+		
+		// Casella (1,1) --> Water
+		
 		assertTrue(board.isCellEmpty(1, 1));
 		
-		//Celda (2,2) --> ship
+		// Casella (2,2) --> Ship
+		
 		board.setCell(2, 2, board.getSize(), 'S');
 		assertFalse(board.isCellEmpty(2, 2));
 		
-		//Celda (3,3) --> hit
+		// Casella (3,3) --> Hit
+		
 		board.setCell(3, 3,board.getSize(), 'X');
 		assertFalse(board.isCellEmpty(3, 3));
 		
-		//Celda (4,4) --> miss
+		// Casella (4,4) --> Miss
+		
 		board.setCell(3, 3,board.getSize(), 'O');
 		assertFalse(board.isCellEmpty(3, 3));
 	}
