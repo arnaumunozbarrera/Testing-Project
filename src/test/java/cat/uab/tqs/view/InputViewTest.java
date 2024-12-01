@@ -48,14 +48,20 @@ class InputViewTest {
     @Test
     void testValidInputsParticionsEquivalentsAndValorsLimitAndFrontera() {
     	
-    	// Inputs vàlid segons una matriu 4x4
+// Inputs vàlid segons una matriu 4x4
     	
-        String simulatedInput = "2\n0\n3\n";
+        String simulatedInput = "-4\n-1\n1\n2\n4\n5\n0\n3\n";
         System.setIn(new ByteArrayInputStream(simulatedInput.getBytes()));
 
         InputView inputView = new InputView();
 
+        assertEquals(-4, inputView.getIntInput("Enter a number: "));
+        assertEquals(-1, inputView.getIntInput("Enter a number: "));
+        assertEquals(1, inputView.getIntInput("Enter a number: "));
         assertEquals(2, inputView.getIntInput("Enter a number: "));
+
+        assertEquals(4, inputView.getIntInput("Enter a number: "));
+        assertEquals(5, inputView.getIntInput("Enter a number: "));
         assertEquals(0, inputView.getIntInput("Enter a number: "));
         assertEquals(3, inputView.getIntInput("Enter a number: "));
     }
