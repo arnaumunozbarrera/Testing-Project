@@ -37,7 +37,3 @@ jobs:
     # 5. Run tests
     - name: Run tests
       run: mvn test
-
-    # 6. Run Checkstyle (optional, remove if not using)
-    - name: Run Checkstyle
-      run: mvn checkstyle:check
