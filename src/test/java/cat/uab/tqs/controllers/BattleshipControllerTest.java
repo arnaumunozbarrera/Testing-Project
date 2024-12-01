@@ -228,6 +228,77 @@ class BattleshipControllerTest {
 	}
 	
 	@Test
+	void testTakeTurnStatement2() {
+		
+		// 1. Jugada amb èxit
+		
+		BoardModel board1 = new BoardModel(4, '-', 'S', 'X', 'O');
+		BoardView boardView1 = new BoardView();
+		String name1 = "prova";
+		MockInputView inputView1 = new MockInputView(new int[] {1,1});
+		MockMessageView messageView1 = new MockMessageView();
+		BattleshipController game1 = new BattleshipController(board1, boardView1, inputView1, messageView1, name1);
+		
+		board1.setCell(0, 0, board1.getSize(), 'S');
+		int result1 = game1.takeTurn2();
+		
+		assertEquals(1, result1);
+		assertEquals('X',board1.getCell(0, 0));
+		assertTrue(messageView1.containsMessage("Hit!"));
+		
+		// 2. Miss (casella buïda)
+		
+		BoardModel board2 = new BoardModel(4, '-', 'S', 'X', 'O');
+		BoardView boardView2 = new BoardView();
+		String name2 = "prova";
+		MockInputView inputView2 = new MockInputView(new int[] {2,2}); 
+		MockMessageView messageView2 = new MockMessageView();
+		BattleshipController game2 = new BattleshipController(board2, boardView2, inputView2, messageView2, name2);
+		
+		int result2= game2.takeTurn2();
+		assertEquals(0,result2);
+		assertEquals('O', board2.getCell(1, 1));
+		assertTrue(messageView2.containsMessage("Miss!"));
+		
+		// 3. Casella ja feta servir per ship ja descobert 
+		
+		BoardModel board3 = new BoardModel(4, '-', 'S', 'X', 'O');
+		BoardView boardView3 = new BoardView();
+		String name3 = "prova";
+		MockInputView inputView3 = new MockInputView(new int[] {1,1,2,2}); //Primer afegim (1,1)
+		MockMessageView messageView3 = new MockMessageView();
+		BattleshipController game3 = new BattleshipController(board3, boardView3, inputView3, messageView3, name3);
+		
+		board3.setCell(0, 0, board3.getSize(), 'X');
+		int result3 = game3.takeTurn2();
+		
+		assertEquals(0,result3);
+		assertEquals('X', board3.getCell(0, 0));
+		assertEquals('O', board3.getCell(1, 1));
+		assertTrue(messageView3.containsMessage("Already targeted. Try again."));
+		assertTrue(messageView3.containsMessage("Miss!"));
+		
+		// 3. Casella ja feta servir per Miss previ 
+		
+		BoardModel board4 = new BoardModel(4, '-', 'S', 'X', 'O');
+		BoardView boardView4 = new BoardView();
+		String name4 = "prova";
+		MockInputView inputView4 = new MockInputView(new int[] {1,1,2,2});
+		MockMessageView messageView4 = new MockMessageView();
+		BattleshipController game4 = new BattleshipController(board4, boardView4, inputView4, messageView4, name4);
+		
+		board4.setCell(0, 0, board4.getSize(), 'O');
+		int result4 = game4.takeTurn2();
+		
+		assertEquals(0,result4);
+		assertEquals('O', board4.getCell(0, 0));
+		assertEquals('O', board3.getCell(1, 1));
+		assertTrue(messageView4.containsMessage("Already targeted. Try again."));
+		assertTrue(messageView4.containsMessage("Miss!"));
+		
+	}
+	
+	@Test
     void testPlaceShipsLoopSimple() {
 		
 		// 1. Placement d'un ship correctament
