@@ -1,5 +1,4 @@
 ## Codi:
-### - Fer ús d'un mock object de Mockito.
 ### - CI regles a GitHub.
 
 ## Informe: 
