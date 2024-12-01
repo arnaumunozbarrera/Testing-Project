@@ -6,9 +6,9 @@ José Ortín López (1667573)
 Battleship Game development and testing.
 
 ### Prerequisites
-- Java Development Kit (JDK) 8 or higher
-- Maven for dependency management
-- An IDE like IntelliJ IDEA, Visual Studio Code or Eclipse for Java Developers
+- Java Development Kit (JDK) 8 or higher.
+- Maven for dependency management.
+- An IDE like IntelliJ IDEA, Visual Studio Code or Eclipse for Java Developers.
 
 # MVC Example
 This project demonstrates how to implement the Model View Controller pattern.
