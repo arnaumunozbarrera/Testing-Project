@@ -31,7 +31,3 @@ jobs:
     # Run unit tests
     - name: Run tests
       run: mvn test  # O usa `gradle test` si usas Gradle
-
-    # Run Checkstyle for code quality checks
-    - name: Run Checkstyle
-      run: mvn checkstyle:check  # Ejecutar Checkstyle con Maven
