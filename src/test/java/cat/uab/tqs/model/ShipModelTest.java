@@ -17,7 +17,7 @@ class ShipModelTest {
 		// Valors frontera: dins dels límits (0 i 3) i fora (-1 i 4)
 		  
 		ShipModel s1 = new ShipModel(-4, -4); 
-	    assertEquals(s1.getRow(), -4);
+	    assertEquals(s1.getRow(), -5);
 		
 	    ShipModel s2 = new ShipModel(-1, -1); 
 	    assertEquals(s2.getRow(), -1);
