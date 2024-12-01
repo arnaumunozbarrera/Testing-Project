@@ -436,7 +436,7 @@ class BoardViewTest {
     }  
     
     @Test
-    void testPrintBoardLoopsNotSimples() {
+    void testPrintBoardLoopsNotSimplesWithMockito() {
     	    	
     	// Creem una matriu 8x8 per simular el grid
     	
@@ -473,4 +473,4 @@ class BoardViewTest {
       
     }
     
-} 
+}
