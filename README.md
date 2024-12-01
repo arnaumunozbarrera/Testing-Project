@@ -1,4 +1,4 @@
-﻿# Testing & Quality of Software Project
+﻿# Test & Quality of a Software Project
 ### Autors: 
 Arnau Muñoz Barrera (1665982) &
 José Ortín López (1667573)
