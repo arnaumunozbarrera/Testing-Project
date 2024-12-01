@@ -11,7 +11,7 @@ public class main {
         int boardSize = 8; // Board size 8x8 
         int shipCount = boardSize/2; // Ship number 4
         char water = '-';
-        char ship = 's';
+        char ship = 'S';
         char hit = 'X';
         char miss = 'O';
 
