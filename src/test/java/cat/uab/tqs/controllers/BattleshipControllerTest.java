@@ -1,6 +1,12 @@
 package test.java.cat.uab.tqs.controllers;
 
 import static org.junit.jupiter.api.Assertions.*;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.ArgumentMatchers.anyString;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 
 import org.junit.jupiter.api.Test;
 
@@ -14,6 +20,51 @@ import main.java.cat.uab.tqs.view.MockMessageView;
 import main.java.cat.uab.tqs.model.BoardModel;
 
 class BattleshipControllerTest {
+	
+	
+	@Test 
+	void testPlaceShipsMockito() {
+		
+        // Creació dels mocks fent servir Mockito
+		
+		// given
+		
+		BoardModel mockBoardModel = mock(BoardModel.class);
+        BoardView mockBoardView = mock(BoardView.class);
+        InputView mockInputView = mock(InputView.class);
+        MessageView mockMessageView = mock(MessageView.class);
+        
+        // when
+
+        when(mockBoardModel.getSize()).thenReturn(4); // Board de 4x4
+        when(mockBoardModel.isCellEmpty(anyInt(), anyInt())).thenReturn(true); // Totes les files estan buïdes
+        when(mockBoardModel.getShipChar()).thenReturn('S');
+
+        // Configuració del mock de InputView
+        
+        when(mockInputView.getIntInput(anyString()))
+                .thenReturn(1) 
+                .thenReturn(1); 
+
+        // Creació del controller dels mocks
+        
+        BattleshipController controller = new BattleshipController(
+                mockBoardModel,
+                mockBoardView,
+                mockInputView,
+                mockMessageView,
+                "prova"
+        );
+        
+        // then
+
+        controller.placeShips(1); // Mètode a probar
+
+        verify(mockMessageView).showMessage("prova, place your ships on the board.");
+        verify(mockMessageView).showMessage("Ships available: 1");
+        verify(mockInputView, times(2)).getIntInput(anyString()); // 2 crides, per fila i per columna
+        verify(mockBoardModel).setCell(0, 0, 4, 'S'); // Ship a (0,0) 
+	}
 
 	@Test
 	void testPlaceShipsStatement() {
